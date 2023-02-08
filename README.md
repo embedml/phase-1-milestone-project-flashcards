@@ -46,8 +46,8 @@
 
 
 
- ### Project Diagram
- 
+ ### Project Control Flow Diagram
+ ![Control Flow Diagram](./control_flow_white_back.png)
 
 
 
