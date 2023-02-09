@@ -17,7 +17,6 @@ a front and a back.
 
 ####################
 
-
 #### Deck Class ####
 '''
 1. Create a class called Deck
@@ -33,7 +32,7 @@ Have the constructor assign `file_name` to an attribute called
 `file_name`. Have the `name` argument be a default argument equal to None.
 
 3. Create an attribute called `cards` that is an empty list, and an 
-attribute called `name` that is equal to None.
+attribute called `name` that is equal to None. (Use self)
 
 4. In the constructor check if the `name` argument passed in is None, if
 it is None, then slice the `file_name` cutting off the `.csv` and storing
@@ -42,10 +41,10 @@ it into the `name` attribute. (Hint: negative value slicing may help here!)
 Otherwise just store the `name` parameter into the `name` attribute. 
 
 5. Load the values from the csv file. For each row, create a 
-`Card` object storing the first value in each row to the front 
-of the card, adn second value in each row to the back of the Card. 
-Once the Card is created append it to the `cards` attribute of the Deck
-class. Do this for every row in the csv file. 
+`Card` object. Use the init of the 'Card' object to store the first value 
+in each row to the front of the card, and second value in each row to the 
+back of the Card. Once the Card is created append it to the list `cards` of 
+the Deck class. Do this for every row in the csv file. 
 
 This is populating our Deck with cards that we can read through later!
 
@@ -100,6 +99,7 @@ python_vocab
 ********************
 
 Note: It is VERY IMPORTANT you have 20 *s otherwise the autograder will fail you.
+Also do not use \n at the end of many of these print statements.
 
 6. In the `print_menu` method, have it print 20 *s, then print the name of each deck loaded 
 in the `loaded_decks` attribute. Then print 20 more *s
@@ -113,7 +113,7 @@ Hint: We can iterate through a dictionaries values using the dict.value(), no ke
 7. Make sure you are passing "test_reader_print_menu"
 
 8. Create a method called "play_front_first" have it take in the argument `deck_name`. Have it display each card in the deck with 
-the name `deck_name`. For each card have it print "Front\n" then the front of the card, then grab a user input displaying "Press any key to show the front..."
+the name `deck_name`. For each card have it print "Front\n" then the front of the card, then grab a user input displaying "Press any key to show the back..."
 After you have collected the user input print out "Back\n" then the back of the card. Then grab the users input displaying ""Press any key to move to the next card..."
 Once it is done displaying every card in the deck have it print out "Deck Finished\n"
 
@@ -138,12 +138,20 @@ Hint: We can get the dict's keys using the dict.keys() method. An alternative is
 #########################
 
 #### The main function ####
+
+def main():
+    '''Control flow will be here!'''
+    print("Delete this line once you start!")
+    
 '''
 This next section looks like like a lot! The goal with verbose instructions is to try to reduce 
 confusion (not intimidate you). If you have any questions please reach out! 
 
 
-1. Create a function called main(), have it take in no arguments
+1. The function main(), just like in C code, is the entry point of the program.
+This is where your runtime code goes!
+
+IMPORTANT: Do not delete the if __name__ below, doing so will break the code. 
 
 This function will be IO (Input Output) HEAVY, so please reference the 
 README file. You can always view the README file easier by clicking
@@ -194,7 +202,7 @@ print out "Please choose a deck to examine by typing in the deck name, or press 
 using the .print_menu() method. Then get an input from the user while displaying "Input:\n" (in the input() function)
 
 10. Right now since we are constantly asking for an input from the user but not using it, the user is not able to exit our program. Go ahead and check if the 
-input is "q", if it is "q" then we should break out of the while loop with our "print_menu" call, causing the program to end. 
+input is "q", if it is "q" then we should break out of the while loop and print "Exiting flash cards.\n", causing the program to end. 
 
 Run your program and see what it looks like. 
 
@@ -239,12 +247,6 @@ Run your program! You should now have flashcards completed and passing all tests
 
 '''
 
-###########################
-
-def main():
-    '''Control flow will be here!'''
-    print("Delete this line once you start!")
-
-
+######### DO NOT DELETE __name__ ######### 
 if __name__ == "__main__":
    main()
