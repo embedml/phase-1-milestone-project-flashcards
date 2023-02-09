@@ -76,9 +76,9 @@ def test_io_quit(monkeypatch, capsys):
     if output_text[5] != "python_vocab":
         print('Expected: "python_vocab" on line 5')
         assert output_text[5] == "python_vocab"
-    if output_text[-2] != "Exiting flash cards.":
+    if output_text[-3] != "Exiting flash cards.":
         print('Expected: "Exiting flash cards." on the second to last line')
-        assert output_text[-2] == "Exiting flash cards." # Note last string is blank
+        assert output_text[-3] == "Exiting flash cards." # Note last string is blank
 
 def test_io_deck_does_not_exist(monkeypatch, capsys):
     inputs = ["test_deck.csv\n", "n\n", "deck_abc\n", "q\n"] # We actually want these inputs for this one
@@ -228,20 +228,14 @@ def test_io_quit_after_loading_and_using_deck(monkeypatch, capsys):
     if output_text[2] != "Please choose a deck to examine by typing in the deck name, or press 'q' to quit:":
         print('Expected:', '"Please choose a deck to examine by typing in the deck name, or press',"'q'",'to quit:"','on line 2')
         assert output_text[2] == "Please choose a deck to examine by typing in the deck name, or press 'q' to quit:"
-    if output_text[5] != "test_deck":
-        print('Expected: "test_deck" on line 5')
-        assert output_text[5] == "test_deck"
+    assert output_text[5] == "test_deck", "Your output: " + output_text[5] + ' Expected: "test_deck" on line 5'
     is_test4_in_text = False
     for text in output_text:
         if text.find("test4") != -1:
             is_test4_in_text = True
     assert is_test4_in_text == True, "test4 not found in print out"
-    if output_text[-4] != "*"*20:
-        print('Expected: "********************" on the fourth to last line')
-        assert output_text[-4] == "*"*20 # Make sure it still prints menu when they are done flipping through deck"
-    if output_text[-2] != "Exiting flash cards.":
-        print('Expected: "Exiting flash cards." on the second to last line')
-        assert output_text[-2] == "Exiting flash cards." # Note last string is blank
+    assert output_text[-4] == "*"*20, "Your output: "+ output_text[-4] + ' Expected: "********************" on the fourth to last line' # Make sure it still prints menu when they are done flipping through deck"
+    assert output_text[-3] == "Exiting flash cards.", "Your output: " + output_text[-3] + ' Expected: "Exiting flash cards." on the second to last line'  # Note last two strings are blank
 
 
 

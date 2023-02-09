@@ -87,7 +87,7 @@ and create an attribute called "loaded_decks" assign it to an empty dictionary.
 default argument equal to None.
 
 4. In the `load_deck` method, create a Deck based on the `file_name` and `name` passed in. Then add it to the dictionary loaded deck. 
-Make the key the `file_name` variable and the value the Deck you created.
+Make the key the `name` variable and the value the Deck you created.
 
 5. Make sure you are passing "test_reader_load_deck"
 
@@ -139,15 +139,20 @@ Hint: We can get the dict's keys using the dict.keys() method. An alternative is
 #########################
 
 #### The main function ####
+
+def main():
+    '''Control flow will be here!'''
+    print("Delete this line once you start!")
+    
 '''
 This next section looks like like a lot! The goal with verbose instructions is to try to reduce 
 confusion (not intimidate you). If you have any questions please reach out! 
 
 
-1. Create a function called main(), have it take in no arguments
+1. The function main(), just like in C code, is the entry point of the program.
+This is where your runtime code goes!
 
-An example can be found below. Make sure to delete it before you create your new main() function.
-IMPORTANT: Do not delete the if __name__ , doing so will break the code. 
+IMPORTANT: Do not delete the if __name__ below, doing so will break the code. 
 
 This function will be IO (Input Output) HEAVY, so please reference the 
 README file. You can always view the README file easier by clicking
@@ -198,7 +203,7 @@ print out "Please choose a deck to examine by typing in the deck name, or press 
 using the .print_menu() method. Then get an input from the user while displaying "Input:\n" (in the input() function)
 
 10. Right now since we are constantly asking for an input from the user but not using it, the user is not able to exit our program. Go ahead and check if the 
-input is "q", if it is "q" then we should break out of the while loop and print "Exiting flash cards." (no \n), causing the program to end. 
+input is "q", if it is "q" then we should break out of the while loop and print "Exiting flash cards.\n", causing the program to end. 
 
 Run your program and see what it looks like. 
 
@@ -242,12 +247,6 @@ they would like to select and printing the menu. (Again I suggest referencing th
 Run your program! You should now have flashcards completed and passing all tests! 
 
 '''
-
-###########################
-
-def main():
-    '''Control flow will be here!'''
-    print("Delete this line once you start!")
 
 ######### DO NOT DELETE __name__ ######### 
 if __name__ == "__main__":
