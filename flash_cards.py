@@ -3,13 +3,15 @@ import csv # Need this for grabbing from a csv file
 
 #### Card Class ####
 '''
-Create a class called Card
+1. Create a class called Card
 
-Create a constructor that takes in `front` and `back` assigning
+2. Create a constructor that takes in `front` and `back` assigning
 them to the attributes `front` and back`. 
 
 This will act as our flash card! Our flash cards have both 
 a front and a back. 
+
+3. Make sure you are passing "test_card_init"
 
 '''
 
@@ -47,8 +49,13 @@ class. Do this for every row in the csv file.
 
 This is populating our Deck with cards that we can read through later!
 
+5. Make sure you are passing "test_deck_init_name" and "test_deck_load_deck"
+
 6. Create a new method called `rename`, have it pass in a `name` and
 reassign the `name` attribute to that new name.
+
+7. Make sure you are passing "test_deck_rename:"
+
 
 '''
 
@@ -69,12 +76,63 @@ deal with many decks (and cards).
 This will be our main way to load decks, organize them, and read 
 them. 
 
-This class will have some IO (Input Output), so please reference the 
-README file. You can always view the README file easier by clicking
-on the file and pressing the "Magnifying Glass on a Page" icon in the
-top right of the VS Code window.
-'''
+2. Create a constructor for the DeckReader class. Have it take in no parameters (besides self)
+and in the constructor have it create an attribute called `selected_deck` assigned the value None
+and create an attribute called "loaded_decks" assign it to an empty dictionary. 
 
+"selected_deck" will point to the deck we have selected
+"loaded_decks" will hold the decks we have loaded corresponding to their input name
+
+3. Create a method called `load_deck` have it take in the arguments `file_name`, and `deck_name`. Have `deck_name` be
+default argument equal to None.
+
+4. In the `load_deck` method, create a Deck based on the `file_name` and `name` passed in. Then add it to the dictionary loaded deck. 
+Make the key the `name` variable and the value the Deck you created.
+
+5. Make sure you are passing "test_reader_load_deck"
+
+5. Create a method called `print_menu`. It should take in no arguments (except self).
+
+Print menu can be called to display all the loaded lists. For example if we loaded in "python_vocab.csv" it should 
+have the name "python_vocab" (.csv is chopped off via Deck call). We would want to display it like below:
+********************
+python_vocab
+********************
+
+Note: It is VERY IMPORTANT you have 20 *s otherwise the autograder will fail you.
+
+6. In the `print_menu` method, have it print 20 *s, then print the name of each deck loaded 
+in the `loaded_decks` attribute. Then print 20 more *s
+
+Hint: Sometimes we like to print many of the same characters, but typing them out takes a long time. Instead in Python
+we can multiply a string by a number to extend the string repetitively by that amount. 
+For example to print 20 *s we can call `print("*" * 20)` instead of `print(********************)
+
+Hint: We can iterate through a dictionaries values using the dict.value(), no key call required! 
+
+7. Make sure you are passing "test_reader_print_menu"
+
+8. Create a method called "play_front_first" have it take in the argument `deck_name`. Have it display each card in the deck with 
+the name `deck_name`. For each card have it print "Front\n" then the front of the card, then grab a user input displaying "Press any key to show the front..."
+After you have collected the user input print out "Back\n" then the back of the card. Then grab the users input displaying ""Press any key to move to the next card..."
+Once it is done displaying every card in the deck have it print out "Deck Finished\n"
+
+9. Make sure you are passing "test_reader_play_front_first"
+
+10. Create a method called 'play_back_first`, then do the same as step 8, but display the back then front of the Card. Change the order of the 
+prints and input displays as necessary. Once it is done displaying every card in the deck have it print out "Deck Finished\n"
+
+11. Make sure you are passing "test_reader_play_back_first"
+
+12. Create a method called `does_deck_exist` this should take in the argument `deck_name`. Have this iterate through the 
+loaded deck names to see if it exists. If it does exist return True if it does not return False
+
+Hint: We can get the dict's keys using the dict.keys() method. An alternative is to just call `for key in some_dict:`
+
+13. Make sure you are passing "test_reader_does_deck_exist"
+
+
+'''
 
 
 #########################
