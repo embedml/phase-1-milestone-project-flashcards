@@ -10,7 +10,6 @@ from io import StringIO
 
 def test_reader_init():
     test_reader = DeckReader()
-    assert test_reader.selected_deck == None
     assert test_reader.loaded_decks == {}
 
 

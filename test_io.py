@@ -36,7 +36,6 @@ def test_io_loading_another_deck_yes(monkeypatch, capsys):
         print(line)
     assert output_text[0] == "Please specify the deck you would like to load by typing in the file name:", "\nYour output: " + '"' + output_text[0] + '"' + '\n   Expected: "Please specify the deck you would like to load by typing in the file name:" on stdout line 0'
     assert output_text[1] == "Would you like to load another deck? (y/n)", "\nYour output: " + '"' + output_text[1] + '"' + '\n   Expected: "Would you like to load another deck? (y/n)" on stdout line 1'
-    assert output_text[2] == "Please choose a deck to examine by typing in the deck name, or press 'q' to quit:", "\nYour output: " + '"' + output_text[2] + '"' + '\n   Expected: '+'"Please choose a deck to examine by typing in the deck name, or press '+"'q'"+' to quit: "'+'on stdout line 2'
 
 
 def test_io_quit(monkeypatch, capsys):
@@ -163,7 +162,7 @@ def test_io_quit_after_loading_and_using_deck(monkeypatch, capsys):
         if text.find("test4") != -1:
             is_test4_in_text = True
     assert is_test4_in_text == True, "test4 not found in print out"
-    assert output_text[-4] == "*"*20, "\nYour output: " + '"'+ output_text[-4] + '"' + '\n   Expected: "********************" on the fourth to last line' # Make sure it still prints menu when they are done flipping through deck"
+    assert output_text[-5] == "*"*20, "\nYour output: " + '"'+ output_text[-5] + '"' + '\n   Expected: "********************" on the fourth to last line' # Make sure it still prints menu when they are done flipping through deck"
     assert output_text[-3] == "Exiting flash cards.", "\nYour output: " + '"' + output_text[-3] + '"' + '\n   Expected: "Exiting flash cards." on the second to last line'  # Note last two strings are blank
 
 

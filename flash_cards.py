@@ -29,10 +29,10 @@ these to files until you have submitted the project.
 
 2. Create a constructor that takes in a `file_name` and `name`, 
 Have the constructor assign `file_name` to an attribute called 
-`file_name`. Have the `name` argument be a default argument equal to None.
+`file_name`. Have the `name` argument be a default argument equal to None,
+and the default argument `name` assigned to the attribute `name`. 
 
-3. Create an attribute called `cards` that is an empty list, and an 
-attribute called `name` that is equal to None. (Use self)
+3. Create an attribute called `cards` that is an empty list (use self)
 
 4. In the constructor check if the `name` argument passed in is None, if
 it is None, then slice the `file_name` cutting off the `.csv` and storing
@@ -40,8 +40,8 @@ it into the `name` attribute. (Hint: negative value slicing may help here!)
 
 Otherwise just store the `name` parameter into the `name` attribute. 
 
-5. Load the values from the csv file. For each row, create a 
-`Card` object. Use the init of the 'Card' object to store the first value 
+5. In the constructor load the values from the csv file. For each row, create a 
+`Card` object. Use the class call of the 'Card' object to store the first value 
 in each row to the front of the card, and second value in each row to the 
 back of the Card. Once the Card is created append it to the list `cards` of 
 the Deck class. Do this for every row in the csv file. 
@@ -68,7 +68,7 @@ reassign the `name` attribute to that new name.
 1. Create a class called DeckReader
 
 This is an object that we can use to read and load our decks. 
-This type of class is sometimes called a "Manager". You can think 
+This type of class is sometimes called a "Manager" or "Handler". You can think 
 of it as a high level/abstraction class to make it easier to 
 deal with many decks (and cards). 
 
@@ -76,21 +76,19 @@ This will be our main way to load decks, organize them, and read
 them. 
 
 2. Create a constructor for the DeckReader class. Have it take in no parameters (besides self)
-and in the constructor have it create an attribute called `selected_deck` assigned the value None
-and create an attribute called "loaded_decks" assign it to an empty dictionary. 
+and in the constructor create an attribute called "loaded_decks" assign it to an empty dictionary. 
 
-"selected_deck" will point to the deck we have selected
 "loaded_decks" will hold the decks we have loaded corresponding to their input name
 
 3. Create a method called `load_deck` have it take in the arguments `file_name`, and `deck_name`. Have `deck_name` be
 default argument equal to None.
 
-4. In the `load_deck` method, create a Deck based on the `file_name` and `name` passed in. Then add it to the dictionary loaded deck. 
-Make the key the `name` variable and the value the Deck you created.
+4. In the `load_deck` method, create a Deck based on the `file_name` and `name` passed into the method. Then add it to the dictionary loaded deck. 
+Make the key the `name` attribute of the Deck you just created and the value the Deck itself.
 
 5. Make sure you are passing "test_reader_load_deck"
 
-5. Create a method called `print_menu`. It should take in no arguments (except self).
+6. Create a method called `print_menu`. It should take in no arguments (except self).
 
 Print menu can be called to display all the loaded lists. For example if we loaded in "python_vocab.csv" it should 
 have the name "python_vocab" (.csv is chopped off via Deck call). We would want to display it like below:
@@ -99,37 +97,35 @@ python_vocab
 ********************
 
 Note: It is VERY IMPORTANT you have 20 *s otherwise the autograder will fail you.
-Also do not use \n at the end of many of these print statements.
 
-6. In the `print_menu` method, have it print 20 *s, then print the name of each deck loaded 
+
+7. In the `print_menu` method, have it print 20 *s, then print the name of each deck loaded 
 in the `loaded_decks` attribute. Then print 20 more *s
 
 Hint: Sometimes we like to print many of the same characters, but typing them out takes a long time. Instead in Python
 we can multiply a string by a number to extend the string repetitively by that amount. 
-For example to print 20 *s we can call `print("*" * 20)` instead of `print(********************)
+For example to print 20 *s we can call `print("*" * 20)` instead of `print(********************) 
 
-Hint: We can iterate through a dictionaries values using the dict.value(), no key call required! 
+8. Make sure you are passing "test_reader_print_menu"
 
-7. Make sure you are passing "test_reader_print_menu"
-
-8. Create a method called "play_front_first" have it take in the argument `deck_name`. Have it display each card in the deck with 
+9. Create a method called "play_front_first" have it take in the argument `deck_name`. Have it display each card in the deck with 
 the name `deck_name`. For each card have it print "Front\n" then the front of the card, then grab a user input displaying "Press any key to show the back..."
-After you have collected the user input print out "Back\n" then the back of the card. Then grab the users input displaying ""Press any key to move to the next card..."
+After you have collected the user input print out "Back\n" then the back of the card. Then grab the users input displaying "Press any key to move to the next card..."
 Once it is done displaying every card in the deck have it print out "Deck Finished\n"
 
-9. Make sure you are passing "test_reader_play_front_first"
+10. Make sure you are passing "test_reader_play_front_first"
 
-10. Create a method called 'play_back_first`, then do the same as step 8, but display the back then front of the Card. Change the order of the 
+11. Create a method called 'play_back_first`, then do the same as step 8, but display the back then front of the Card. Change the order of the 
 prints and input displays as necessary. Once it is done displaying every card in the deck have it print out "Deck Finished\n"
 
-11. Make sure you are passing "test_reader_play_back_first"
+12. Make sure you are passing "test_reader_play_back_first"
 
-12. Create a method called `does_deck_exist` this should take in the argument `deck_name`. Have this iterate through the 
+13. Create a method called `does_deck_exist` this should take in the argument `deck_name`. Have this iterate through the 
 loaded deck names to see if it exists. If it does exist return True if it does not return False
 
 Hint: We can get the dict's keys using the dict.keys() method. An alternative is to just call `for key in some_dict:`
 
-13. Make sure you are passing "test_reader_does_deck_exist"
+14. Make sure you are passing "test_reader_does_deck_exist"
 
 
 '''
@@ -148,10 +144,13 @@ This next section looks like like a lot! The goal with verbose instructions is t
 confusion (not intimidate you). If you have any questions please reach out! 
 
 
-1. The function main(), just like in C code, is the entry point of the program.
-This is where your runtime code goes!
+1. The function main() is the entry point of the program. Typically in other programming
+languages they will have a main function like ours to indicate where our program starts.
 
-IMPORTANT: Do not delete the if __name__ below, doing so will break the code. 
+main() is where your runtime code goes!
+
+IMPORTANT: Do not delete the if __name__ line below, doing so will break the code. 
+main() is called under this if statement. We will learn more about this in Phase 2!
 
 This function will be IO (Input Output) HEAVY, so please reference the 
 README file. You can always view the README file easier by clicking
@@ -172,9 +171,11 @@ sure you are passing all other tests as they may be correct for future tests)
 (Note: All input function calls should have \n at the end, this helps with grading. print() 
 statements should also have \n at the end of the string)
 
-4. Load the deck into the DeckReader Object from the file input. 
+4. Load the deck into the DeckReader Object from the file based on the input results. 
 
-Run your program and see what it looks like
+Run your program and see what it looks like? What does it do when you type things right?
+What does it do when you type things wrong?
+(These are food for thought questions no need to type out the answers)
 
 5. Make sure you are passing the test `test_io_first_deck_file`
 
@@ -183,6 +184,8 @@ is not "n" then get the user's input of what deck they would ike to load with th
 Then load the user specified deck into the DeckReader object. 
 If the user says "n" (no), then stop asking if they would like to load another deck. 
 (Hint: Look at the diagram in the README file)
+(Hint Hint: Since we want to know the condition immediately it might be best
+to put the input() function in the same line as the while loop keyword!)
 
 Run your program and see what it looks like.
 
@@ -209,7 +212,7 @@ Run your program and see what it looks like.
 11. Make sure you are passing "test_io_quit"
 
 12. Next if the input is not "q" then we want to check to see if the input was a deck we showed in the print menu. We can do this 
-by calling our handy "does_deck_exist" function which returns True if it exists and false if it does not. If it does not exits then print 
+by calling our handy "does_deck_exist" method which returns True if it exists and false if it does not. If it does not exits then print 
 out "Deck does not exist try again!\n". This should cause us to go back up to our while loop to ask the user to examine a list and 
 re print the menu.
 
@@ -221,7 +224,7 @@ Recap: At this point, we load in a deck, then we ask if we want to load in anoth
 where we ask the user to select a deck from the printed menu. If the user presses q then we exit the program. If the user 
 types in a deck that does not exist we tell the user it does not exist and to try selecting another deck. 
 
-15. Next we need to examine the deck the user selects from the menu (if it exists)! We are going to implement two methods of examining the deck
+15. Next we need to examine the deck the user selects from the menu (if it exists)! We are going to implement two ways of examining the deck
 which are described below:
 
 a. Deck can be read with the front of the cards being shown first, then the back second which we will denote as the option f. 
@@ -235,7 +238,7 @@ If the user does not input "f" or "b" then we want to tell the user "Your input 
 "Would you like to show the front or bac first (f/b)?\n". Hint: This cyclical nature of incorrect inputs means we will need a while loop! 
 
 If "f" or "b" is selected call the appropriate method, and break out of the while loop to go back up a level to ask the user which deck 
-they would like to select and printing the menu. (Again I suggest referencing the diagram in teh README.md file)
+they would like to select and printing the menu. (Again I suggest referencing the diagram in the README.md file)
 
 16. Make sure you are passing "test_io_read_deck_front"
 
@@ -249,4 +252,4 @@ Run your program! You should now have flashcards completed and passing all tests
 
 ######### DO NOT DELETE __name__ ######### 
 if __name__ == "__main__":
-   main()
+   main() # Main is being ran here! 
