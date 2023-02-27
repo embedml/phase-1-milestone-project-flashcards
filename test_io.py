@@ -154,7 +154,7 @@ def test_io_quit_after_loading_and_using_deck(monkeypatch, capsys):
     output_text = captured_stdout.split("\n")
     for line in output_text:
         print(line)
-    assert output_text[0] == "Please specify the deck you would like to load by typing in the file name:", "Your output: " + output_text[0] + ' Expected: "Please specify the deck you would like to load by typing in the file name:" on line 0'
+    assert output_text[0] == "Please specify the deck you would like to load by typing in the file name:", "\nYour output: " + f'"{output_text[0]}"' + ' \n\n   Expected: "Please specify the deck you would like to load by typing in the file name:" stdout line 0\n\n'
     assert output_text[1] == "Would you like to load another deck? (y/n)", "Your output: " + output_text[1] + ' Expected: "Would you like to load another deck? (y/n)" on line 1'
     assert output_text[2] == "Please choose a deck to examine by typing in the deck name, or press 'q' to quit:", "Your output: " + output_text[2] + ' Expected: '+'"Please choose a deck to examine by typing in the deck name, or press '+"'q'"+' to quit: "'+'on line 2'
     assert output_text[5] == "test_deck", "Your output: " + output_text[5] + ' Expected: "test_deck" on line 5'
