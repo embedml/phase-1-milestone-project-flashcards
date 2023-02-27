@@ -17,7 +17,6 @@ a front and a back.
 
 ####################
 
-
 #### Deck Class ####
 '''
 1. Create a class called Deck
